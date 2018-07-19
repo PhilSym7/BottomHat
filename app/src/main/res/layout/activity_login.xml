@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".loginActivity">
+    
+    <RelativeLayout
+        android:animateLayoutChanges="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--                    -->
+        <!--    Sign In Items   -->
+        <!--                    -->
+        <EditText
+            android:id="@+id/field_email"
+            android:hint="Email address"
+            android:layout_width="325dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="121dp" />
+
+        <EditText
+            android:id="@+id/field_password"
+            android:hint="Password"
+            android:layout_width="325dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/field_email"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"/>
+
+
+        <Button
+            android:id="@+id/btn_sign_in"
+            android:layout_width="325dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/field_password"
+            android:layout_centerHorizontal="true"
+            android:text="sign in" />
+
+        <Button
+            android:id="@+id/btn_to_create_account"
+            android:layout_width="325dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_sign_in"
+            android:layout_centerHorizontal="true"
+            android:text="Create Account" />
+
+
+        <!--                           -->
+        <!--    Create Account Items   -->
+        <!--                           -->
+        <EditText
+            android:id="@+id/field_password_confirm"
+            android:hint="Confirm Password"
+            android:layout_width="325dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/field_password"
+            android:layout_marginTop="5dp"
+            android:visibility="gone"/>
+        <EditText
+
+            android:id="@+id/field_first_name"
+            android:hint="First Name"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/field_password_confirm"
+            android:layout_below="@+id/field_password_confirm"
+            android:layout_marginTop="5dp"
+            android:visibility="gone"/>
+
+        <EditText
+            android:id="@+id/field_last_name"
+            android:hint="Last Name"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@id/field_password_confirm"
+            android:layout_below="@id/field_password_confirm"
+            android:layout_marginTop="5dp"
+            android:visibility="gone"/>
+
+        <Button
+            android:id="@+id/btn_create_account"
+            android:layout_width="325dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/field_first_name"
+            android:text="Create Account"
+            android:visibility="gone"/>
+
+        <Button
+            android:id="@+id/btn_to_sign_in"
+            android:layout_width="325dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/btn_create_account"
+            android:text="back to sign in"
+            android:visibility="gone"/>
+
+        
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>
