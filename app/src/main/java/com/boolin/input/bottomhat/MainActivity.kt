@@ -45,8 +45,6 @@ class MainActivity : AppCompatActivity() {
         val btnSignOut = btn_sign_out
         btnSignOut.setOnClickListener {
             signOut()
-            val i = Intent(this@MainActivity, loginActivity::class.java)
-            startActivity(i)
         }
 
         updateUI(currentUser)
@@ -73,5 +71,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun signOut(){
         mAuth?.signOut()
+        val i = Intent(this@MainActivity, loginActivity::class.java)
+        startActivity(i)
     }
 }
