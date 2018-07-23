@@ -6,50 +6,56 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/test_username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="user name?"
-        app:layout_constraintBottom_toTopOf="@+id/btn_sign_out"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.033" />
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-    <Button
-        android:id="@+id/btn_open_course_select"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Choose classes"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_sign_out"
-        app:layout_constraintVertical_bias="0.0" />
+    <!--<TextView-->
+        <!--android:id="@+id/test_username"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginBottom="8dp"-->
+        <!--android:layout_marginEnd="8dp"-->
+        <!--android:layout_marginStart="8dp"-->
+        <!--android:layout_marginTop="8dp"-->
+        <!--android:text="user name?"-->
+        <!--app:layout_constraintBottom_toTopOf="@+id/btn_sign_out"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent"-->
+        <!--app:layout_constraintVertical_bias="0.033" />-->
 
-    <Button
-        android:id="@+id/btn_sign_out"
-        android:layout_width="wrap_content"
+    <!--<Button-->
+        <!--android:id="@+id/btn_sign_out"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginBottom="8dp"-->
+        <!--android:layout_marginEnd="8dp"-->
+        <!--android:layout_marginStart="8dp"-->
+        <!--android:layout_marginTop="8dp"-->
+        <!--android:text="Sign Out"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintHorizontal_bias="0.502"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent"-->
+        <!--app:layout_constraintVertical_bias="0.646" />-->
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigationView"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Sign Out"
+        android:layout_marginEnd="0dp"
+        android:layout_marginStart="0dp"
+        android:background="?android:attr/windowBackground"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.646" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:itemBackground="@color/colorPrimary"
+        app:itemIconTint="@color/colorAccent"
+        app:itemTextColor="@color/colorAccent"
+        app:menu="@menu/navigation"/>
 
 </android.support.constraint.ConstraintLayout>
