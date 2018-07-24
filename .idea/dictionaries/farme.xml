@@ -2,6 +2,7 @@
   <dictionary name="farme">
     <words>
       <w>gridview</w>
+      <w>listview</w>
     </words>
   </dictionary>
 </component>

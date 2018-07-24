@@ -146,10 +146,10 @@ class loginActivity : AppCompatActivity() {
         //Add a new document with generated ID
         db.collection("users").add(user)
                 .addOnSuccessListener{documentReference ->
-                    Toast.makeText(this, "Document Added with ID: " + documentReference.id, LENGTH_SHORT)
+                    Toast.makeText(this, "Document Added with ID: " + documentReference.id, LENGTH_SHORT).show()
                 }
                 .addOnFailureListener{documentReference ->
-                    Toast.makeText(this, "Error adding document", LENGTH_SHORT)
+                    Toast.makeText(this, "Error adding document", LENGTH_SHORT).show()
                 }
     }
 }
