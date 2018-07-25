@@ -22,7 +22,11 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QuerySnapshot
 import kotlinx.android.synthetic.main.fragment_course.*
 import android.widget.ArrayAdapter
-
+import android.app.Activity
+import android.view.View
+import android.widget.AdapterView
+import android.widget.AdapterView.OnItemClickListener
+import kotlinx.android.synthetic.main.fragment_subcourse.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -35,6 +39,7 @@ class MainActivity : AppCompatActivity() {
 
     //list of course names
     val courses = mutableListOf<String?>()
+    val subCourses = mutableListOf<String?>()
 
     //stupid bools
 
@@ -129,6 +134,7 @@ class MainActivity : AppCompatActivity() {
         startActivity(i)
     }
 
+        //new zanzabar had me like
     fun checkDb(){
         db.collection("users")
                 .get()
@@ -144,15 +150,47 @@ class MainActivity : AppCompatActivity() {
                 })
     }
 
-    fun initializeCourses(){
-        val courseAdapter = ArrayAdapter<String>(this,
-                R.layout.lv_course_item, courses)
+    fun openSubCourseFragment(courseItem: String){
+        val subCourseFragment = SubCourseFragment.newInstance()
+        openFragment(subCourseFragment)
 
-        val listView: ListView = findViewById(R.id.course_listview)
+        subCourses.clear()
+        db.collection("subjects/" + courseItem + "/courses").get()
+                .addOnCompleteListener( { task ->
+                    if (task.isSuccessful){
+                        for (document in task.result){
+                            var subCourseName: String? = document.id
+                            subCourses.add(subCourseName)
+                        }
+                        initializeSubCourses()
+                    } else {
+
+                    }
+                })
+    }
+
+    fun initializeCourses(){
+        val courseAdapter = ArrayAdapter<String>(this, R.layout.lv_course_item, courses)
+
+        val listView: ListView = course_listview
         listView.adapter = courseAdapter
+
+        //onClick for items in course list
+        listView.setOnItemClickListener { adapterView, view, i, l ->
+            var item: String = courses[i].toString()
+            openSubCourseFragment(item)
+        }
+    }
+
+    fun initializeSubCourses(){
+        val subCourseAdapter = ArrayAdapter<String>(this, R.layout.lv_subcourse_item, subCourses)
+
+        val listView: ListView = subcourse_listview
+        listView.adapter = subCourseAdapter
     }
 
     fun getCourses(){
+        courses.clear() 
         db.collection("subjects")
                 .get()
                 .addOnCompleteListener( { task ->
